@@ -148,11 +148,11 @@ class Wacker(object):
             elif event == "<3>CTRL-EVENT-NETWORK-NOT-FOUND":
                 self.send_to_server(f'DISABLE_NETWORK 0')
                 logging.info('NETWORK NOT FOUND\n')
-                return Wacker.EXIT
+                return Wacker.RETRY
             elif event == "<3>CTRL-EVENT-SCAN-FAILED":
                 self.send_to_server(f'DISABLE_NETWORK 0')
                 logging.info('SCAN FAILURE')
-                return Wacker.EXIT
+                return Wacker.RETRY
             elif event == "<3>CTRL-EVENT-BRUTE-SUCCESS":
                 self.print_stats(count)
                 logging.info('BRUTE ATTEMPT SUCCESS\n')
